@@ -1,6 +1,6 @@
-# mobile_app
+# mobileapp
 
-A new Flutter project.
+This is the controller from the mobile app to the embedded arduino car.
 
 ## Getting Started
 
