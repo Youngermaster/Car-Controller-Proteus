@@ -1,90 +1,86 @@
-/**
-  Car Controller
-  
-  Author: Juan Manuel Young Hoyos.
-*/
-#include <SoftwareSerial.h>
+#include <Servo.h>
+#define out1 22
+#define out2 23
+#define out3 25
+#define out4 27
 
-// You can change the pins
-#define BLUETOOTH_TX 50
-#define BLUETOOTH_TD 51
-
-#define MOTOR_1_A 22
-#define MOTOR_1_B 23
-#define MOTOR_1_PWM 24
-
-#define MOTOR_2_A 27
-#define MOTOR_2_B 28
-#define MOTOR_2_PWM 29
-
-const int state_0 = 0;
-const int state_1 = 1;
-const int state_2 = 2;
-const int state_3 = 3;
-const int state_4 = 4;
-
-long int data;
-SoftwareSerial Blue(BLUETOOTH_TX, BLUETOOTH_TD);
-
-void stopCar() {
-  Serial.println("Stopping...");
-}
-
-void accelerate() {
-  Serial.println("Accelerating car");
-}
-
-void reverse() {
-  Serial.println("Reversing");
-}
-
-void turnRight() {
-  Serial.println("Turning Right");
-}
-
-void turnLeft() {
-  Serial.println("Turning Left");
-}
+Servo myservo;
+int pos = 93; //93 es el numero en el cual servo está en cero grados
+int state = 0;
 
 void setup() {
-
-  pinMode(MOTOR_1_A, OUTPUT);
-  pinMode(MOTOR_1_B, OUTPUT);
-  pinMode(MOTOR_1_PWM, OUTPUT);
-  
-  pinMode(MOTOR_2_A, OUTPUT);
-  pinMode(MOTOR_2_B, OUTPUT);
-  pinMode(MOTOR_2_PWM, OUTPUT);
-  
-  stopCar();
+  // put your setup code here, to run once:
+  myservo.attach(29);
+  pinMode(out1, OUTPUT);
+  pinMode(out2, OUTPUT);
+  pinMode(out3, OUTPUT);
+  pinMode(out4, OUTPUT);
   Serial.begin(9600);
-  Blue.begin(9600);
 }
 
 void loop() {
-  while (Blue.available() == 0);
-
-  if (Blue.available() > 0)
-    data = Blue.parseInt();
+  if (Serial.available() > 0)
+    state = Serial.read();
   
-  switch(data) {
-    case state_0:
-      stopCar();
-      break;
-    case state_1:
+  switch (state) {
+    case 'A':
+      stop();
       accelerate();
       break;
-    case state_2:
+    case 'B':
+      stop();
       reverse();
       break;
-    case state_3:
-      turnRight();
-      break;
-    case state_4:
+    case 'L':
       turnLeft();
+      delay(100);
+      break;
+    case 'R':
+      turnRight();
+      delay(100);
+      break;
+    case 'S':
+      stop();
       break;
     default:
-      stopCar();
-      break;  
+      break;
+  }
+  state = 0;
+}
+
+void accelerate() {
+  digitalWrite(out1, HIGH);
+  digitalWrite(out2, LOW);
+  digitalWrite(out3, LOW);
+  digitalWrite(out4, HIGH);
+}
+
+void reverse() {
+  digitalWrite(out1, LOW);
+  digitalWrite(out2, HIGH);
+
+  //Doy energia al servo motor
+  digitalWrite(out3, LOW);
+  digitalWrite(out4, HIGH);
+}
+
+void stop() {
+  digitalWrite(out1, LOW);
+  digitalWrite(out2, LOW);
+  digitalWrite(out3, LOW);
+  digitalWrite(out4, LOW);
+}
+
+void turnRight() {
+  for (pos; pos <= 117; pos += 1) {
+    myservo.write(pos);
+    delay(15);
+  }
+}
+
+void turnLeft() {
+  for (pos; pos >= 68; pos -= 1) {
+    myservo.write(pos);
+    delay(15);
   }
 }

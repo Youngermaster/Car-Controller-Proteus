@@ -1,6 +1,6 @@
 # Proteus stuff
-.pdsbak
-.workspace
+*.pdsbak
+*.workspace
 
 # Vs code settings
 .vs
