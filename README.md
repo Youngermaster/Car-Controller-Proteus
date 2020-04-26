@@ -1,5 +1,7 @@
 # Proteus Car Controller
 
+![simulation](assets/simulation.gif)
+
 This is a simulation of a car drived by bluetooth, through the emisor bluetooth (which could be a smartphone) the user can `accelerate`, `reverse`, `turn left`, `turn right` and `stop`.
 
 ## Software used
@@ -13,6 +15,7 @@ This is a simulation of a car drived by bluetooth, through the emisor bluetooth 
 Just follow the next steps:
 
 1. Open Virtual Serial Port Driver.
+
 ![step1](assets/step1.png)
 
 2. Add pair.
