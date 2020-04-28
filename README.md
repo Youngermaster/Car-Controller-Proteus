@@ -10,6 +10,18 @@ This is a simulation of a car drived by bluetooth, through the emisor bluetooth 
 - Proteus 8 Profesional (8.8 version).
 - [Virtual Serial Port Driver](https://www.eltima.com/vspd-post-download.html) (from Etilma Software).
 
+## Adding L289 Library to proteus
+- You can download the library at this link: https://www.theengineeringprojects.com/2017/09/l298-motor-driver-library-proteus.html 
+- Once you downloaded the rar file, open it and extract the files.
+- You will get two files in it, named as:
+    L298MotorDriverTEP.LIB
+    L298MotorDriverTEP.IDX
+- Place these two files in the Library folder of your Proteus Software.
+- Now restart your Proteus software and search for L298 Motor Driver in the search box.
+
+## Methods inside the arduino file:
+- 
+
 ## How to execute it?
 
 Just follow the next steps:
