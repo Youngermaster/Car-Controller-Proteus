@@ -19,6 +19,8 @@ This is a simulation of a car drived by bluetooth, through the emisor bluetooth 
 - Place these two files in the Library folder of your Proteus Software.
 - Now restart your Proteus software and search for L298 Motor Driver in the search box.
 - Here is what it should look like:
+
+
 ![L298-Motor-Driver](assets/L298-Motor-Driver.jpg)
 
 ## How to execute it?
