@@ -19,9 +19,6 @@ This is a simulation of a car drived by bluetooth, through the emisor bluetooth 
 - Place these two files in the Library folder of your Proteus Software.
 - Now restart your Proteus software and search for L298 Motor Driver in the search box.
 
-## Methods inside the arduino file:
-- 
-
 ## How to execute it?
 
 Just follow the next steps:
@@ -65,6 +62,16 @@ Just follow the next steps:
 10. Simulate.
 
 ![step10](assets/step10.png)
+
+
+## Methods inside the arduino file:
+- Inside the loop method we have a switch case to see which command the user is giving to the program, so the following methods start to work:
+
+1. accelerate() : as him name is saying this method accelerates the motor of the car.
+2. reverse() : the method is responsible for reversing the car.
+3. stop() : the method stops the car.
+4. turnRight() : the method makes the car turn right.
+5. turnLeft() : the method makes the car turn left.
 
 ## Simulation Options
 
