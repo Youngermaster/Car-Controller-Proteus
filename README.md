@@ -2,7 +2,7 @@
 
 ![simulation](assets/simulation.gif)
 
-This is a simulation of a car drived by bluetooth, through the emisor bluetooth (which could be a smartphone) the user can `accelerate`, `reverse`, `turn left`, `turn right`, `slow down` the motor, `speed up` the motor and `stop`.
+This is a simulation of a car driven by bluetooth, through the emisor bluetooth (which could be a smartphone) the user can `accelerate`, `reverse`, `turn left`, `turn right`, `slow down` the motor, `speed up` the motor and `stop`.
 
 ## Software used
 
